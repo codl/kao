@@ -4,10 +4,10 @@ var textarea = document.querySelector("textarea");
 function makeMoji(el){
     el.addEventListener("click", function(){
         if("selectionStart" in textarea){
-            let start = textarea.selectionStart;
-            let end = textarea.selectionEnd;
-            let left = textarea.value.slice(0, start);
-            let right = textarea.value.slice(end);
+            var start = textarea.selectionStart;
+            var end = textarea.selectionEnd;
+            var left = textarea.value.slice(0, start);
+            var right = textarea.value.slice(end);
             textarea.value = left + el.textContent + right;
             textarea.selectionStart = textarea.selectionEnd = start + 1;
         }
