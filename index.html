@@ -3,7 +3,7 @@
         <title>Kaomoji</title>
         <script src="kao.js" async></script>
 <style>
-    html { font-size: 3em; }
+    html { font-size: 3em; font-family: sans-serif; }
     textarea { font-family: inherit; font-size: inherit; }
     a {
         display: inline-block;
@@ -13,19 +13,52 @@
     a:hover, a:active {
         background: #aaaaff;
     }
+    [data-display] {
+        color: transparent;
+        position: relative;
+    }
+    [data-display]::after {
+        content: attr(data-display);
+        color: black;
+        opacity: 0.3;
+        display: block;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+    }
 </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <div class="inputs">
             <a>-</a>
-            <a>&#10075;</a> <!-- heavy turned comma --!>
-            <a>&#180;</a> <!-- acute accent --!>
-            <a>&#96;</a> <!-- grave accent --!>
-            <a>&#8226;</a> <!-- bullet --!>
+            <a>&#10075;</a> <!-- heavy turned comma -->
+            <a>&#180;</a> <!-- acute accent -->
+            <a>&#96;</a> <!-- grave accent -->
+            <a>'</a>
+            <a>;</a>
             <br>
-            <a>&#1997;</a> <!-- low caret --!>
-            <a>&#7447;</a> <!-- that smile thing i cant remember what it's supposed to be --!>
+            <a>&#8226;</a> <!-- bullet -->
+            <a>^</a>
+            <a>&#728;</a> <!-- breve -->
+            <a>*</a>
+            <a>o</a>
+            <a>&#12539;</a> <!-- middle dot -->
+            <br>
+            <a>&#1997;</a> <!-- low caret -->
+            <a>&#7447;</a> <!-- that smile thing i cant remember what it's supposed to be -->
+            <a>&#9251;</a> <!-- open box -->
+            <a>&#8255;</a> <!-- undertie -->
+            <a>&#969;</a> <!-- omega -->
+            <a>w</a>
+            <a>&#1079;</a> <!-- ze -->
+            <br>
+            <a>&#10047;</a> <!-- black florette -->
+            <a>~</a>
+            <a>&#9734;</a> <!-- white star -->
+            <a>&#9733;</a> <!-- black star -->
+            <a>(</a>
+            <a>)</a>
+            <a data-display="&#9251;">&nbsp;</a>
         </div>
         <textarea cols="10" rows="1"></textarea>
         <div><button>Copy that shit!!!</button></div>
