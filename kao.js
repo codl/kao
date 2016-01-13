@@ -1,4 +1,5 @@
 "use strict";
+
 var inputs = Array.from(document.querySelectorAll(".inputs a"));
 var textarea = document.querySelector("textarea");
 function makeMoji(el){
@@ -28,7 +29,8 @@ copy.addEventListener("click", function(){
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js')
-    .then(function(sw) {
-        console.log("Serviceworker registered successfully (✿•ᴗ•)");
+    .then(function(swr){
+        var status = document.querySelector("p.status");
+        status.innerHTML = "Ready for offline use! -ᴗ-✿";
     });
 }
