@@ -2,9 +2,12 @@
 var v = "kao-v3"
 
 self.addEventListener('install', function(e){
+    console.log("installing sw", v);
     e.waitUntil(
         caches.open(v).then(function(c){
             return c.addAll(['.', 'kao.js', 'main.css']);
+        }).then(function(){
+            return self.skipWaiting();
         })
     );
 });
