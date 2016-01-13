@@ -25,3 +25,10 @@ copy.addEventListener("click", function(){
     textarea.select();
     document.execCommand("copy");
 });
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+    .then(function(sw) {
+        console.log("Serviceworker registered successfully (✿•ᴗ•)");
+    });
+}
