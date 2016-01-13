@@ -1,15 +1,16 @@
 "use strict";
-var v = "1"
+var v = "2"
 
 self.addEventListener('install', function(e){
     e.waitUntil(
         caches.open('kao-v' + v).then(function(c){
-            return c.addAll(['.', 'kao.js']);
+            return c.addAll(['.', 'kao.js', 'main.css']);
         })
     );
 });
 
 self.addEventListener('fetch', function(event) {
+    console.log(Math.random(), event.request.method, event.request.url);
     event.respondWith(
         caches.match(event.request).then(function(response) {
             return response || fetch(event.request);
