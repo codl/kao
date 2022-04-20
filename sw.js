@@ -1,10 +1,11 @@
 "use strict";
-var v = "kao-v3"
+let cache_prefix = "kao-";
+let version = "kao-2022-04-20.1";
 
 self.addEventListener('install', function(e){
-    console.log("installing sw", v);
+    console.log("installing sw", version);
     e.waitUntil(
-        caches.open(v).then(function(c){
+        caches.open(cache_prefix + version).then(function(c){
             return c.addAll(['.', 'kao.js', 'main.css']);
         }).then(function(){
             return self.skipWaiting();
@@ -22,12 +23,12 @@ self.addEventListener('fetch', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-    console.log("activating sw", v);
+    console.log("activating sw", version);
     event.waitUntil(
         caches.keys().then(function(cacheNames) {
             return Promise.all(
                 cacheNames.map(function(cacheName) {
-                    if (cacheName != v) {
+                    if (cacheName.startsWith(cache_prefix) && cacheName != cache_prefix + version) {
                         return caches.delete(cacheName);
                     }
                 })
